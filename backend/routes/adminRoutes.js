@@ -12,11 +12,11 @@ router.get('/cards', auth, async (req, res) => {
   }
 
   try {
-    // Make sure to replace 'Card' with your actual card model
+
     const cards = await Card.find().populate('user', 'username').select('-cvv');
     res.json(cards);
   } catch (err) {
-    console.error('Card Retrieval Error:', err.message);
+    console.error('Card Retrieval Error: ', err.message);
     res.status(500).send('Server error');
   }
 });

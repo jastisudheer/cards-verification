@@ -1,14 +1,14 @@
 const express = require('express');
 const auth = require('../middleware/auth');
 const Card = require('../models/Card');
-const validateCardNumber = require('../utils/validateCardNumber'); // Assume this is implemented
+const validateCardNumber = require('../utils/validateCardNumber'); 
 const router = express.Router();
 
 router.post('/', auth, async (req, res) => {
   const { cardNumber, cardholderName, expiryDate } = req.body;
 
   if (!validateCardNumber(cardNumber)) {
-    return res.status(400).json({ msg: 'Invalid card number' });
+    return res.status(400).json({ msg: 'Invalid card number 👎❌' });
   }
 
   try {
@@ -43,7 +43,7 @@ router.delete('/:cardId', auth, async (req, res) => {
   try {
       const card = await Card.findOneAndDelete({ _id: req.params.cardId, user: req.user.id });
       if (!card) {
-          return res.status(404).json({ msg: 'Card not found or user not authorized to delete this card' });
+          return res.status(404).json({ msg: 'Card not found or user not authorized to delete this card ' });
       }
       res.json({ msg: 'Card deleted successfully' });
   } catch (err) {

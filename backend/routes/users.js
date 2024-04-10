@@ -33,13 +33,11 @@ router.post('/register', async (req, res) => {
         role: user.role
       }
     };
-
-    // Modified to include user details in the response
     jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5h' }, (err, token) => {
       if (err) throw err;
       res.json({
         token,
-        user: { // Include user details explicitly in the response
+        user: { 
           role: user.role
         }
       });
@@ -74,12 +72,11 @@ router.post('/login', async (req, res) => {
       }
     };
 
-    // Modified to include user details in the response
     jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5h' }, (err, token) => {
       if (err) throw err;
       res.json({
         token,
-        user: { // Include user details explicitly in the response
+        user: { 
           role: user.role
         }
       });

@@ -3,7 +3,6 @@ function validateCardNumber(number) {
   let sum = 0;
   let shouldDouble = false;
 
-  // Loop through values starting at the rightmost side
   for (let i = noSpaces.length - 1; i >= 0; i--) {
     let digit = parseInt(noSpaces.charAt(i));
 

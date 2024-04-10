@@ -6,7 +6,7 @@ const cardSchema = new Schema({
   cardNumber: { type: String, required: true },
   cardholderName: { type: String, required: true },
   expiryDate: { type: String, required: true }
-  // Note: CVV is not stored for security reasons
+  // Note: CVV is not storing
 }, { timestamps: true });
 
 module.exports = mongoose.model('Card', cardSchema);
